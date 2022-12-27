@@ -7,9 +7,6 @@
 #include<string>
 #include<vector>
 #include<algorithm>
-#include<ctype.h>
-#include<stack>
-#include<tuple>
 
 class XMLtag {
 public:
