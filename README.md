@@ -20,7 +20,7 @@ Note how all values are stored in element properties. It is unable to parse unna
 Open and parse files using the `XML::openFile(path)` function. This function returns an XMLelem object, this object holds a child element vector named: `elems`, an XMLtag vector named: `tags` and a string called `name`. XMLtag objects hold only name and value parameters.
 The XMLelem class contains many filtering functions:
 ```
-std::vector<XMLtag> getTags(std::string Name);
+	std::vector<XMLtag> getTags(std::string Name);
 	std::vector<XMLelem> getElems(std::string Name);
 	std::vector<XMLelem> getElemsWithTag(std::string tagName);
 	std::vector<XMLtag> getTags(XMLtag tag);
