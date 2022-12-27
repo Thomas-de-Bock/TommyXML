@@ -76,7 +76,6 @@ private:
 	static std::string readFile(std::string path);
 	//Splits file into XMLparseObjects
 	static std::vector<XMLparseObject> preprocessFile(std::string file);
-	static std::vector<int> allOccurences(std::string str, std::string substr);
 };
 
 
@@ -311,21 +310,6 @@ std::vector<XMLparseObject> XML::preprocessFile(std::string file) {
 	}
 
 	return cutFile;
-}
-
-std::vector<int> XML::allOccurences(std::string str, std::string substr) {
-    int index = 0;
-    std::vector<int> allOccurences;
-    while ((index = str.find(substr, index)) != std::string::npos) {
-    	allOccurences.push_back(index);
-        index += substr.length();
-    }
-    return allOccurences;
-}
-
-int main() {
-	std::cout << XML::openFile("C:/Users/thoma/elements.xml").str() << std::endl;
-
 }
 
 
