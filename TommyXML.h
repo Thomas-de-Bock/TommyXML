@@ -64,15 +64,14 @@ public:
 	//returns single big XMLelem using filename as name
 	static XMLelem openFile(std::string path);
 
-	//Does not take multiple non-hierarchal elements,
-	//this is why open and closing elements with filename are placed
-	//at the start and end of files before reading
-	static XMLelem XMLelemFromObjects(std::vector<XMLparseObject> data);
-
 private:
 	static std::string readFile(std::string path);
 	//Splits file into XMLparseObjects
 	static std::vector<XMLparseObject> preprocessFile(std::string file);
+	//Does not take multiple non-hierarchal elements,
+	//this is why open and closing elements with filename are placed
+	//at the start and end of files before reading
+	static XMLelem XMLelemFromObjects(std::vector<XMLparseObject> data);
 };
 
 
@@ -211,10 +210,6 @@ XMLelem XML::XMLelemFromObjects(std::vector<XMLparseObject> data) {
 			}
 		} else if(selectingElem && data[i].isClose && data[i].content == data[selectedElemStartIndex].content) {
 			std::vector<XMLparseObject> subData = {data.begin() + selectedElemStartIndex, data.end() - (data.size()-i-1)};
-			std::cout << "recursion on: " << std::endl;
-			for(int i = 0; i < subData.size(); i++) {
-				std::cout << "- " << subData[i].content << std::endl;
-			}
 			allElements.push_back(XMLelemFromObjects(subData));
 			selectedElemStartIndex = -1;
 			selectingElem = false;
@@ -237,7 +232,6 @@ std::vector<XMLparseObject> XML::preprocessFile(std::string file) {
 	file.erase(std::remove(file.begin(), file.end(), '\n'), file.cend());
 	file.erase(std::remove(file.begin(), file.end(), '\t'), file.cend());
 	file.erase(std::remove(file.begin(), file.end(), '\v'), file.cend());
-	std::cout << file << std::endl;
 	std::vector<XMLparseObject> cutFile;
 	std::string currentStr = "";
 	bool isVal = false;
@@ -308,7 +302,5 @@ std::vector<XMLparseObject> XML::preprocessFile(std::string file) {
 
 	return cutFile;
 }
-
-
 
 #endif
