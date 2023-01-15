@@ -1,7 +1,7 @@
 # TommyXML
 ## Single-header XML parser
  
-Made mainly for ThomasTheGameEngine
+Made mainly for the animation system of ThomasTheGameEngine
 
 Able to parse files like:
 
