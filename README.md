@@ -12,7 +12,7 @@ Able to parse files like:
         <Anim id="walk" path="walk" delay="0.01" frames="0-4"/>
 </Player>
 ```
-Note how all values are stored in element properties. It is unable to parse unnamed values such as:
+Note how all values are stored in element properties. It is unable to parse values such as:
 ```
 <Name>Thomas</Name>
 ```
