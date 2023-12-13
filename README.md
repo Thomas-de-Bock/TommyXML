@@ -31,7 +31,7 @@ To make sure a file has been properly parsed, use the `str` function of the XMLe
 
 Example usage:
 ```cpp
-std::cout << XML::openFIle("/path/to/playerAnimations.xml").str();
+std::cout << XML::openFile("/path/to/playerAnimations.xml").str();
 ```
 Executed on the previously displayed example file, prints out the result:
 ```
